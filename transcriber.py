@@ -27,7 +27,7 @@ def record_chunk(p, stream, file_path, chunk_length=5):  # Alterado para 5 segun
 
 def main2():
     model_size = "small"
-    model = WhisperModel(model_size, device="cpu", compute_type="int8")
+    model = WhisperModel(model_size, device="cuda", compute_type="float16")
 
     p = pyaudio.PyAudio()
     stream = p.open(format=pyaudio.paInt16, channels=1, rate=16000, input=True, frames_per_buffer=1024)
